@@ -1,9 +1,10 @@
 import { Contacto } from "./classContacto.js";
 
+
 console.log("Hola mundo");
 
 const crearContacto = new Contacto(
-  1,
+  undefined,
   "Augusto",
   "Brito",
   "Chino",
