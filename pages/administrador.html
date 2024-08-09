@@ -37,19 +37,19 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a
-                  class="nav-link "
-                  href="./index.html"
-                  >Inicio</a
-                >
+                <a class="nav-link" href="./index.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./pages/administrador.html">Administrador</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./pages/administrador.html"
+                  >Administrador</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./pages/error404.html">Contactos</a>
               </li>
-              
             </ul>
           </div>
         </div>
@@ -59,75 +59,136 @@
       <h1 class="text-center mb-4">Administrar Contactos</h1>
       <section>
         <div class="d-flex justify-content-between">
-            <h2>Lista de Contactos</h2>
-            <button class="btn btn-primary">Agregar Contactos</button>
+          <h2>Lista de Contactos</h2>
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#modalContacto"
+          >
+            Agregar Contactos
+          </button>
         </div>
-        <div class="table-responsive">
-            <table class="table table-striped mt-4">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Email</th>
-                        <th>Celular</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Rosario</td>
-                        <td>Pittaro</td>
-                        <td>rosario@mail.com</td>
-                        <td>381555666</td>
-                        <td>
-                            <button class="btn btn-warning">Editar</button>
-                            <button class="btn btn-danger">Borrar</button>
-                            <button class="btn btn-info">Ver</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Rosario</td>
-                        <td>Pittaro</td>
-                        <td>rosario@mail.com</td>
-                        <td>381555666</td>
-                        <td>
-                            <button class="btn btn-warning">Editar</button>
-                            <button class="btn btn-danger">Borrar</button>
-                            <button class="btn btn-info">Ver</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Rosario</td>
-                        <td>Pittaro</td>
-                        <td>rosario@mail.com</td>
-                        <td>381555666</td>
-                        <td>
-                            <button class="btn btn-warning">Editar</button>
-                            <button class="btn btn-danger">Borrar</button>
-                            <button class="btn btn-info">Ver</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Rosario</td>
-                        <td>Pittaro</td>
-                        <td>rosario@mail.com</td>
-                        <td>381555666</td>
-                        <td>
-                            <button class="btn btn-warning">Editar</button>
-                            <button class="btn btn-danger">Borrar</button>
-                            <button class="btn btn-info">Ver</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
+        <div class="table-responsive mt-4">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Celular</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Rosario</td>
+                <td>Pittaro</td>
+                <td>rosario@mail.com</td>
+                <td>381555666</td>
+                <td>
+                  <button class="btn btn-warning">Editar</button>
+                  <button class="btn btn-danger">Borrar</button>
+                  <button class="btn btn-info">Ver</button>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Rosario</td>
+                <td>Pittaro</td>
+                <td>rosario@mail.com</td>
+                <td>381555666</td>
+                <td>
+                  <button class="btn btn-warning">Editar</button>
+                  <button class="btn btn-danger">Borrar</button>
+                  <button class="btn btn-info">Ver</button>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Rosario</td>
+                <td>Pittaro</td>
+                <td>rosario@mail.com</td>
+                <td>381555666</td>
+                <td>
+                  <button class="btn btn-warning">Editar</button>
+                  <button class="btn btn-danger">Borrar</button>
+                  <button class="btn btn-info">Ver</button>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Rosario</td>
+                <td>Pittaro</td>
+                <td>rosario@mail.com</td>
+                <td>381555666</td>
+                <td>
+                  <button class="btn btn-warning">Editar</button>
+                  <button class="btn btn-danger">Borrar</button>
+                  <button class="btn btn-info">Ver</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
+      <div
+        class="modal fade"
+        id="modalContacto"
+        tabindex="-1"
+        aria-labelledby="modalContactoLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title fs-5" id="modalContactoLabel">
+                Registrar Contacto
+              </h2>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input id="nombre" type="text" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="apellido" class="form-label">Apellido</label>
+                  <input id="apellido" type="text" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="apodo" class="form-label">Apodo</label>
+                  <input id="apodo" type="text" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input id="email" type="email" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="celular" class="form-label">Celular</label>
+                  <input id="celular" type="tel" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="foto" class="form-label">Foto</label>
+                  <input id="foto" type="text" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="direccion" class="form-label">Direccion</label>
+                  <input id="direccion" type="text" class="form-control" />
+                </div>
+              </form>
+              <button class="btn btn-primary" type="submit">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer></footer>
     <script
