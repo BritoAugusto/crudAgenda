@@ -1,4 +1,4 @@
-class Contacto {
+export class Contacto {
   #id;
   #nombre;
   #apellido;
