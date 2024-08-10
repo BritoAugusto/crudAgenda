@@ -12,7 +12,7 @@ const email = document.querySelector('#email');
 const celular = document.querySelector('#celular'); 
 const foto = document.querySelector('#foto'); 
 const direccion = document.querySelector('#direccion'); 
-const listaContactos = [];
+const listaContactos = JSON.parse(localStorage.getItem('agendaKey')) || [];
 //funciones
 const mostrarModal = ()=>{
     modalAdminContacto.show()
