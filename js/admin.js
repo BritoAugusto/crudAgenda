@@ -1,8 +1,6 @@
 import { Contacto } from "./classContacto.js";
 
-
-console.log("Hola mundo");
-
+//crear variables
 const crearContacto = new Contacto(
   undefined,
   "Augusto",
@@ -13,4 +11,14 @@ const crearContacto = new Contacto(
   "chino@mail.com",
   "link"
 );
-console.log(crearContacto);
+const modalAdminContacto = new bootstrap.Modal (document.querySelector("#modalContacto"));
+const btnAgregarContacto = document.querySelector('.btn-primary');
+
+//funciones
+const mostrarModal = ()=>{
+    modalAdminContacto.show()
+}
+
+
+//agregar los manejadores de eventos
+btnAgregarContacto.addEventListener('click', mostrarModal)
