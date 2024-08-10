@@ -13,6 +13,9 @@ const celular = document.querySelector('#celular');
 const foto = document.querySelector('#foto'); 
 const direccion = document.querySelector('#direccion'); 
 const listaContactos = JSON.parse(localStorage.getItem('agendaKey')) || [];
+const tbody = document.querySelector('tbody');
+
+
 //funciones
 const mostrarModal = ()=>{
     modalAdminContacto.show()
@@ -45,6 +48,34 @@ const guardarEnLocalStorage = ()=>{
     localStorage.setItem('agendaKey', JSON.stringify(listaContactos))
 }
 
+const cargaInicialTablaContactos = ()=>{
+if (listaContactos.length !== 0) {
+listaContactos.map((contacto)=>dibujarFila(contacto))
+}
+}
+const dibujarFila = (contacto)=>{
+    tbody.innerHTML += `<tr>
+                <td>${contacto.id}</td>
+                <td>${contacto.nombre}</td>
+                <td>${contacto.apellido}</td>
+                <td>${contacto.email}</td>
+                <td>${contacto.celular}</td>
+                <td>
+                  <button class="btn btn-warning">
+                    <i class="bi bi-pencil-square"></i>Editar
+                  </button>
+                  <button class="btn btn-danger">
+                    <i class="bi bi-trash"></i>Borrar
+                  </button>
+                  <button class="btn btn-info">
+                    <i class="bi bi-eye-fill"></i>Ver
+                  </button>
+                </td>
+              </tr>
+    `;
+}
+
 //agregar los manejadores de eventos
 btnAgregarContacto.addEventListener('click', mostrarModal);
 formRegistrarContacto.addEventListener('submit', crearContacto);
+cargaInicialTablaContactos();
