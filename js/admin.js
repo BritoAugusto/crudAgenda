@@ -34,10 +34,15 @@ const crearContacto = (e)=>{
     listaContactos.push(contactoNuevo)
     console.log(listaContactos)
     limpiarFormulario();
+    guardarEnLocalStorage();
 }
 
 const limpiarFormulario = ()=>{
     formRegistrarContacto.reset();
+}
+
+const guardarEnLocalStorage = ()=>{
+    localStorage.setItem('agendaKey', JSON.stringify(listaContactos))
 }
 
 //agregar los manejadores de eventos
