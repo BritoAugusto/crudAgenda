@@ -56,35 +56,41 @@ const cargaInicialTablaContactos = () => {
     listaContactos.map((contacto) => dibujarFila(contacto));
   }
 
-window.borrarContacto = (id)=>{
- Swal.fire({
-   title: "¿Estás seguro de borrar el contacto?",
-   text: "No puedes revertir porsteriormente este proceso!",
-   icon: "warning",
-   showCancelButton: true,
-   confirmButtonColor: "#3085d6",
-   cancelButtonColor: "#7066E0",
-   confirmButtonText: "Borrar",
-   cancelButtonText: "Cancelar",
- }).then((result) => {
-   if (result.isConfirmed) {
-    //agregar la logica para borrar
-    console.log(id)
-    //1-Buscar en que posicion del array esta el objeto que tiene el id
-    const posicionContacto = listaContactos.findIndex((contacto)=> contacto.id === id);
-    console.log(posicionContacto);
-    //2-borrar el elemento de la posicion encontrada
-    //3-actualizar el localStorage
-     Swal.fire({
-       title: "Contacto Borrado",
-       text: "El contacto seleccionado fue borrado correctamente",
-       icon: "success",
-     });
-   }
- });
+  window.borrarContacto = (id) => {
+    Swal.fire({
+      title: "¿Estás seguro de borrar el contacto?",
+      text: "No puedes revertir porsteriormente este proceso!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#7066E0",
+      confirmButtonText: "Borrar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        //agregar la logica para borrar
+        console.log(id);
+        //1-Buscar en que posicion del array esta el objeto que tiene el id
+        const posicionContacto = listaContactos.findIndex(
+          (contacto) => contacto.id === id
+        );
+        console.log(posicionContacto);
+        //2-borrar el elemento de la posicion encontrada
+        listaContactos.splice(posicionContacto,1);
+        //3-actualizar el localStorage
+        guardarEnLocalStorage();
+       //4-actualizar tabla de contactos
+       console.log(tbody.children[posicionContacto])
+       tbody.removeChild(tbody.children[posicionContacto])
 
-}
-
+        Swal.fire({
+          title: "Contacto Borrado",
+          text: "El contacto seleccionado fue borrado correctamente",
+          icon: "success",
+        });
+      }
+    });
+  };
 };
 const dibujarFila = (contacto) => {
   tbody.innerHTML += `<tr>
