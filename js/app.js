@@ -1,4 +1,3 @@
-// foto, apodo, direccion
 const listaContactos = JSON.parse(localStorage.getItem("agendaKey")) || [];
 console.log(listaContactos);
 const grilla = document.querySelector(".row");
