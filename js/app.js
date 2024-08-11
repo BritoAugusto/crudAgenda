@@ -1,11 +1,13 @@
 const listaContactos = JSON.parse(localStorage.getItem("agendaKey")) || [];
-console.log(listaContactos);
 const grilla = document.querySelector(".row");
-console.log(grilla);
 const cargaInicialTablaContactos = () => {
   if (listaContactos.length !== 0) {
     listaContactos.map((contacto) => dibujarFila(contacto));
   }
+};
+
+window.verMas = (id) => {
+  window.location.href = "/pages/detalleContacto.html?id=" + id;
 };
 
 const dibujarFila = (contacto) => {
@@ -23,7 +25,7 @@ const dibujarFila = (contacto) => {
 <p><i class="bi bi-telephone-fill"></i> Celular: ${contacto.celular}</p>
     </ul>
      <div class="card-footer text-body-secondary text-end">
-                <button class="btn btn-primary">Ver mas...</button>
+                <button class="btn btn-primary" onclick="verMas('${contacto.id}')">Ver mas...</button>
               </div>
 </div>
 `;
